@@ -2,7 +2,10 @@ public class Point {
   int x;
   int y;
 
-  
+  public Point(int x, int y) {
+    this.x = x;
+    this.y = y;
+  }
   public void setLocation(int newX, int newY) {
     x = newX;
     y = newY;
@@ -29,7 +32,27 @@ public class Point {
   }
 
   public String toString() {
-    return "()";
+    return "[x="+x+","+"y="+y+"]";
+  }
+
+  public int quadrant() {
+    if (x > 0 && y > 0) {
+      return 1;
+    } else if (x < 0 && y > 0) {
+      return 2;
+    } else if (x < 0 && y < 0) {
+      return 3;
+    } else if (x > 0 && y < 0) {
+      return 4;
+    } else {
+      return 0;
+    }
+  }
+
+  public void flip() {
+    int temp = x;
+    x = -y;
+    y = -temp;
   }
 
 }
